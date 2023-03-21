@@ -1,0 +1,191 @@
+@import url("https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Fondamento&family=Walter+Turncoat&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Fondamento", cursive;
+
+  /* Optional nice fonts
+  font-family: "Delius Swash Caps", cursive;
+  font-family: "Walter Turncoat", cursive; */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: rgb(1, 67, 91);
+  padding-top: max(1.5%, 1rem);
+  padding-bottom: max(1.5%, 1rem);
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-size: clamp(25px, 3rem, 5vw);
+}
+
+.content {
+  flex: 1 0 auto;
+  background-color: white;
+  display: flex;
+  gap: 25px;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+}
+
+.board-container {
+  display: flex;
+  gap: 25px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+footer {
+  flex-shrink: 0;
+  background-color: black;
+  color: white;
+  padding: 8px;
+  font-size: clamp(15px, 1rem, 2vw);
+  text-align: center;
+}
+
+.playerBoard {
+  height: 400px;
+  width: 400px;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  background: url("./water.jpg") center;
+}
+
+.computerBoard {
+  height: 400px;
+  width: 400px;
+  display: none;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  background: url("./water.jpg") center;
+  cursor: url(target-cursor.png), pointer;
+}
+
+@media (max-width: 500px) {
+  .playerBoard {
+    height: 250px;
+    width: 250px;
+  }
+
+  .computerBoard {
+    height: 250px;
+    width: 250px;
+  }
+}
+
+[data-row] {
+  display: flex;
+  flex-direction: column;
+  overflow: visible;
+  border: 2px solid rgb(135, 182, 196);
+  position: relative;
+}
+
+.ship {
+  box-sizing: border-box;
+  border: 2px rgb(1, 12, 1) solid;
+  background-color: rgb(187, 122, 71);
+  flex-grow: 1;
+  z-index: 5;
+  position: absolute;
+  cursor: grab;
+}
+
+.hit {
+  background-color: rgb(27, 173, 187);
+}
+
+.missed-attack {
+  background-color: rgb(188, 198, 198);
+}
+
+.explosion {
+  height: 90%;
+  width: 90%;
+  z-index: 100;
+}
+
+.gameover-window {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.gameover {
+  background-color: white;
+  border: 2px black solid;
+  padding: min(20px, 5%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h3 {
+  font-size: clamp(23px, 1.7rem, 2vw);
+}
+
+.gameover p {
+  padding: min(20px, 5%);
+  font-size: clamp(20px, 1.2rem, 1.5vw);
+}
+
+.info {
+  text-align: center;
+  font-size: clamp(20px, 1.2rem, 1.5vw);
+  padding: min(20px, 5%);
+}
+
+.gameover button,
+.start-btn {
+  padding: min(10px, 3%);
+  border-radius: 15px;
+  font-size: clamp(20px, 1.2rem, 1.5vw);
+  background-color: rgb(1, 67, 91);
+  color: white;
+  font-weight: bold;
+  border: black 2px solid;
+  box-shadow: 2px 2px 10px black;
+}
+
+.gameover button:hover,
+.start-btn:hover {
+  padding: min(15px, 4%);
+  cursor: pointer;
+}
+
+.start-btn {
+  margin-bottom: 20px;
+}
+
+a:link {
+  color: rgb(115, 243, 255);
+}
+
+a:visited {
+  color: rgb(207, 209, 209);
+}
